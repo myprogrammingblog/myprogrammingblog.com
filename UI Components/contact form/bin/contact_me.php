@@ -1,5 +1,5 @@
 <?php
-// check if fields passed are empyu
+// check if fields passed are empty
 if(empty($_POST['name'])  		||
    empty($_POST['email']) 		||
    empty($_POST['message'])	||
