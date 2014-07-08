@@ -2,11 +2,9 @@
 <theme_package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../properties.xsd">
 	<load_files>
 		<javascripts>
-			<!-- System frameworks are served directly from {un}roole -->
 			<file>:system-framework/jquery</file>
 			<file>example</file>
 			<file>example2</file>
-			<!-- Custom frameworks are added by the user -->
 			<file>:custom-framework/bootstrap-3.1.1-dist/js/bootstrap.min</file>
 			<file>example3</file>
 			<file>example4</file>
