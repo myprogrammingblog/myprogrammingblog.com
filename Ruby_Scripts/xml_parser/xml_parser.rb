@@ -11,6 +11,8 @@
 #  - Add Unit Tests
 #  - Put into a Gem
 
+# REQUIRES nokogiri: gem install nokogiri
+
 require 'nokogiri'
 
 
