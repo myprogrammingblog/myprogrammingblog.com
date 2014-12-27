@@ -12,8 +12,9 @@ class Array::Manipulator
 	# @param [Array] arr  initial array
 	# @return [Array] uniq elements array
 	def self.uniq(arr)
-		# don't bother if is not an array of it is empty
+		# don't bother if is not an array or it is empty
 		return 0 unless arr.kind_of?(Array) && arr.length > 0
+		
 		uniq_arr = []
 		find_occurences(arr).each do |key, num_of_times|
 			if num_of_times == 1
@@ -28,8 +29,9 @@ class Array::Manipulator
 	# @param [Array] arr  initial array
 	# @return [Array] uniq elements array
 	def self.dup(arr)
-		# don't bother if is not an array of it is empty
+		# don't bother if is not an array or it is empty
 		return 0 unless arr.kind_of?(Array) && arr.length > 0
+
 		dup_arr = []
 		find_occurences(arr).each do |key, num_of_times|
 			if num_of_times > 1
@@ -45,7 +47,7 @@ class Array::Manipulator
 	# @param [String,Integer] search_term search term
 	# @return [Array] uniq elements array
 	def self.number_of_occurencies(arr, search_term)
-		# don't bother if is not an array of it is empty or no search_term
+		# don't bother if is not an array or it is empty or no search_term
 		return 0 unless arr.kind_of?(Array) && arr.length > 0 && search_term
 
 		num_occurencies = find_occurences(arr)[search_term]
