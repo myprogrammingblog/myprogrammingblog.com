@@ -15,8 +15,8 @@ class Array::Manipulator
 		# don't bother if is not an array of it is empty
 		return 0 unless arr.kind_of?(Array) && arr.length > 0
 		uniq_arr = []
-		find_occurences(arr).each do |key, value|
-			if value == 1
+		find_occurences(arr).each do |key, num_of_times|
+			if num_of_times == 1
 				uniq_arr << key
 			end
 		end
@@ -31,8 +31,8 @@ class Array::Manipulator
 		# don't bother if is not an array of it is empty
 		return 0 unless arr.kind_of?(Array) && arr.length > 0
 		dup_arr = []
-		find_occurences(arr).each do |key, value|
-			if value > 1
+		find_occurences(arr).each do |key, num_of_times|
+			if num_of_times > 1
 				dup_arr << key
 			end
 		end
