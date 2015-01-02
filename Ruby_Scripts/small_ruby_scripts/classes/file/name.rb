@@ -45,17 +45,17 @@ class File::Name
   #
   # @param [String] new_file_name desired file_name
   #
-  # @return [String] either generated new_file_name or passed new_file_name if it already uniq
+  # @return [String] generated file name
   def self.generate_random_filename(filename)
     ext = File.extname(filename)
     name = File.basename(filename, ext)
-    numbers_of_related_files = []
+    related_file_indexes = []
     @file_list.select  do |file|
       if File.basename(file).include?(name) && File.extname(file) == ext
-        numbers_of_related_files << file.split("-").last.to_i
+        related_file_indexes << file.split("-").last.to_i
       end
     end
-    return name +  '-' + (numbers_of_related_files.max + 1).to_s + ext
+    return name +  '-' + (related_file_indexes.max + 1).to_s + ext
   end
 
 end
