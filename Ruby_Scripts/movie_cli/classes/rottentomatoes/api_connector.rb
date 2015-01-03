@@ -21,8 +21,8 @@ module RottenTomatoes
 			# path can be either from root or for debugging from the curent class
 			if File.exists?('../../config/api_paths.yml')
 				@config = YAML.load(File.open('../../config/api_paths.yml'))
-			elsif  File.exists?('./config/api_paths.yml')
-				@config =  YAML.load(File.open('./config/api_paths.yml'))
+			elsif File.exists?('./config/api_paths.yml')
+				@config = YAML.load(File.open('./config/api_paths.yml'))
 			else
 				raise StandardError, 'Configuration File cannot be found... please make sure you have api_paths.yml'
 			end
@@ -45,28 +45,28 @@ module RottenTomatoes
 		#
 		# @return [HashMap] JSON with movie information
 		def get_movie_by_title(title)
-				full_path = base_url + "movies.json"
-				# using RestClient make call to restful API with api_ley title and max_movies_per_output
-				RestClient.get(full_path,  {:params =>
-																				{
-																						 :apikey => @config['rottentomatoes']['api_key'],
-																						 :q=> title,
-																						 :page_limit=> @config['rottentomatoes']['max_movies_per_output']
-																				}
-																					# act on response result
-																				 }) { |response, request, result, &block|
-																								case response.code
-																									# if succes connection start acting on result
-																										when 200
-																												json_result = JSON.parse(response.body)
-																												if json_result.has_key?('movies')
-																													put_json_into_movie_obj(json_result['movies'])
-																												end
-																										# if not succesfull just raise an exception
-																										else
-																											raise StandardError, "Cannot connect to RottenTomatoes API, please check config/api_paths.yml for valid api_key"
-																								end
-																						}
+			full_path = base_url + "movies.json"
+			# using RestClient make call to restful API with api_ley title and max_movies_per_output
+			RestClient.get(full_path, {:params =>
+																		 {
+																				 :apikey => @config['rottentomatoes']['api_key'],
+																				 :q => title,
+																				 :page_limit => @config['rottentomatoes']['max_movies_per_output']
+																		 }
+																 # act on response result
+															}) { |response, request, result, &block|
+				case response.code
+					# if succes connection start acting on result
+					when 200
+						json_result = JSON.parse(response.body)
+						if json_result.has_key?('movies')
+							put_json_into_movie_obj(json_result['movies'])
+						end
+					# if not succesfull just raise an exception
+					else
+						raise StandardError, "Cannot connect to RottenTomatoes API, please check config/api_paths.yml for valid api_key"
+				end
+			}
 		end
 
 

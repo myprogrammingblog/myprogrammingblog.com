@@ -11,8 +11,8 @@ module RottenTomatoes
 		Ratings:
 	 		- Critics:  #{ format_score(@ratings['critics_score']) }
 	 		- Audience: #{ format_score(@ratings['audience_score']) }
-			#{ @cast.empty? ? '' :"\n\t\tCast:"+ print_cast_and_characters}
-			#{ @synopsis.empty? ? '' :"\n\t\tPlot:\n\n\t\t\t#{@synopsis}"}
+			#{ @cast.empty? ? '' : "\n\t\tCast:"+ print_cast_and_characters}
+			#{ @synopsis.empty? ? '' : "\n\t\tPlot:\n\n\t\t\t#{@synopsis}"}
 
 			}
 		end
@@ -37,7 +37,7 @@ module RottenTomatoes
 			output = "\n"
 			@cast.each do |actor|
 				if actor.has_key?('characters')
-					output += "\t\t\t"+  actor['name'].bold + " as " + actor['characters'].join(',') + "\n"
+					output += "\t\t\t"+ actor['name'].bold + " as " + actor['characters'].join(',') + "\n"
 				else
 					output += "\t\t\t" + actor['name'].bold + "\n"
 				end
