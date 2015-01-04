@@ -45,26 +45,27 @@ module RottenTomatoes
 		# @return [HashMap] JSON with movie information
 		def get_movie_by_title(title)
 			# using RestClient make call to restful API with api_ley title and max_movies_per_output
-			RestClient.get(base_url, {:params =>
-																		 {
-																				 :apikey => @config['rottentomatoes']['api_key'],
-																				 :q => title,
-																				 :page_limit => @config['rottentomatoes']['max_movies_per_output']
-																		 }
-																 # act on response result
-															}) { |response, request, result, &block|
-				case response.code
-					# if succes connection start acting on result
-					when 200
-						json_result = JSON.parse(response.body)
-						if json_result.has_key?('movies')
-							put_json_into_movie_obj(json_result['movies'])
-						end
-					# if not succesfull just raise an exception
-					else
-						raise StandardError, "Cannot connect to RottenTomatoes API, please check config/api_paths.yml for valid api_key"
-				end
-			}
+			RestClient.get(base_url,
+					 {:params =>
+							{
+									:apikey => @config['rottentomatoes']['api_key'],
+									:q => title,
+									:page_limit => @config['rottentomatoes']['max_movies_per_output']
+							}
+							# act on response result
+					 }) { |response, request, result, &block|
+							case response.code
+								# if succes connection start acting on result
+								when 200
+									json_result = JSON.parse(response.body)
+									if json_result.has_key?('movies')
+										put_json_into_movie_obj(json_result['movies'])
+									end
+								# if not succesfull just raise an exception
+								else
+									raise StandardError, "Cannot connect to RottenTomatoes API, please check config/api_paths.yml for valid api_key"
+							end
+						}
 		end
 
 
@@ -78,7 +79,7 @@ module RottenTomatoes
 			movie_json.map { |movie| RottenTomatoes::Movie.new(movie['id'], movie['year'], movie['gernes'],
 																												 movie['title'], movie['release_dates'], movie['ratings'],
 																												 movie['synopsis'], movie['posters'], movie['abridged_cast'],
-																												  movie['runtime']) }
+																												 movie['runtime']) }
 		end
 
 	end
