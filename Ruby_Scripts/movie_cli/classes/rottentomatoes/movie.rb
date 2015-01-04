@@ -15,12 +15,13 @@ module RottenTomatoes
 	# @attr [String] synopsis Short Description of the movie
 	# @attr [HashMap] posters  Links to movie posters
 	# @attr [Array] cast List of actors their Rottentomatoes ID and their characters name
+	# @attr [Integer] runtime Length of the movie
 	class Movie
 		include RottenTomatoes::MovieOutputHelper
 
-		attr_accessor :id, :year, :gernes, :title, :release_dates, :ratings, :synopsis, :posters, :cast
+		attr_accessor :id, :year, :gernes, :title, :release_dates, :ratings, :synopsis, :posters, :cast, :runtime
 
-		def initialize(_id, _year, _gernes, _title, _release_dates, _ratings, _synopsis, _posters, _abridged_cast)
+		def initialize(_id, _year, _gernes, _title, _release_dates, _ratings, _synopsis, _posters, _abridged_cast, _runtime)
 			@id = _id
 			@year = _year
 			@gernes = _gernes
@@ -30,6 +31,7 @@ module RottenTomatoes
 			@synopsis = _synopsis
 			@posters = _posters
 			@cast = _abridged_cast
+			@runtime = _runtime
 		end
 	end
 end

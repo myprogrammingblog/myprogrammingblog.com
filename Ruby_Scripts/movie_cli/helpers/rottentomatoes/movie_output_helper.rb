@@ -6,11 +6,12 @@ module RottenTomatoes
 		def show
 			%{
 
-		Title: #{@title.bold}
-		Year: #{@year}
+		Title: 		#{@title.bold}
+		Year: 		#{@year}
+		Runtime:	#{@runtime}
 		Ratings:
-	 		- Critics:  #{ format_score(@ratings['critics_score']) }
-	 		- Audience: #{ format_score(@ratings['audience_score']) }
+			- Critics:  #{ format_score(@ratings['critics_score']) }
+			- Audience: #{ format_score(@ratings['audience_score']) }
 			#{ @cast.empty? ? '' : "\n\t\tCast:"+ print_cast_and_characters}
 			#{ @synopsis.empty? ? '' : "\n\t\tPlot:\n\n\t\t\t#{@synopsis}"}
 

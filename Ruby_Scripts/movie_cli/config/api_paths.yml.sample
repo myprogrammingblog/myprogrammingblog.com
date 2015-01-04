@@ -4,5 +4,5 @@ rottentomatoes:
   protocol: http://
   host: api.rottentomatoes.com
   api_key: <YOUR API KEY> # Please Replace this with API KEY from http://developer.rottentomatoes.com/
-  api_path: /api/public/v1.0/
+  api_path: /api/public/v1.0/movies.json
   max_movies_per_output: 5

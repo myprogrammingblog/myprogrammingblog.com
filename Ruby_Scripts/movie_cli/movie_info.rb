@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
-
-require_relative './classes/rottentomatoes/api_connector'
+require_relative './classes/rottentomatoes/api'
 
 # make sure there is just one argument
 unless ARGV.length == 1
@@ -12,7 +11,7 @@ end
 # read an argument
 movie_name = ARGV[0]
 
-rotten_api = RottenTomatoes::ApiConnector.new
+rotten_api = RottenTomatoes::API.new
 movies = rotten_api.get_movie_by_title(movie_name)
 
 #multiple movies

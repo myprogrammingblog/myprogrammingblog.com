@@ -1,5 +1,4 @@
 require 'rest-client'
-require 'uri'
 require_relative 'movie'
 require 'yaml'
 
@@ -12,7 +11,7 @@ module RottenTomatoes
 	#
 	# @attr_writer [HashMap] config Configuration file holding RottenTomatoes API paths and Key
 	# @attr [String] api_url String that holds api_url that is called to get movie information
-	class ApiConnector
+	class API
 
 		attr_accessor :api_url
 		attr_writer :config
@@ -45,9 +44,8 @@ module RottenTomatoes
 		#
 		# @return [HashMap] JSON with movie information
 		def get_movie_by_title(title)
-			full_path = base_url + "movies.json"
 			# using RestClient make call to restful API with api_ley title and max_movies_per_output
-			RestClient.get(full_path, {:params =>
+			RestClient.get(base_url, {:params =>
 																		 {
 																				 :apikey => @config['rottentomatoes']['api_key'],
 																				 :q => title,
@@ -79,7 +77,8 @@ module RottenTomatoes
 		def put_json_into_movie_obj(movie_json)
 			movie_json.map { |movie| RottenTomatoes::Movie.new(movie['id'], movie['year'], movie['gernes'],
 																												 movie['title'], movie['release_dates'], movie['ratings'],
-																												 movie['synopsis'], movie['posters'], movie['abridged_cast']) }
+																												 movie['synopsis'], movie['posters'], movie['abridged_cast'],
+																												  movie['runtime']) }
 		end
 
 	end
