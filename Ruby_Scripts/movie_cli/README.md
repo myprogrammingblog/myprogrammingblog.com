@@ -20,4 +20,4 @@ Example: ruby movie_info.rb 'Unbroken'
 
 Documentation
 -------------------
-This Application is build an Example for myprogrammingblog.com set of tutorials.
+This Application is build as an Example for myprogrammingblog.com set of tutorials.
