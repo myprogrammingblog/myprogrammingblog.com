@@ -45,15 +45,7 @@ module RottenTomatoes
 		# @return [HashMap] JSON with movie information
 		def get_movie_by_title(title)
 			# using RestClient make call to restful API with api_ley title and max_movies_per_output
-			RestClient.get(base_url,
-										 {:params =>
-													{
-															:apikey => @config['rottentomatoes']['api_key'],
-															:q => title,
-															:page_limit => @config['rottentomatoes']['max_movies_per_output']
-													}
-											# act on response result
-										 }) { |response, request, result, &block|
+			RestClient.get(base_url, {:params => { :apikey => @config['rottentomatoes']['api_key'], :q => title, :page_limit => @config['rottentomatoes']['max_movies_per_output']}}) { |response, request, result, &block|
 				case response.code
 					# if succes connection start acting on result
 					when 200
