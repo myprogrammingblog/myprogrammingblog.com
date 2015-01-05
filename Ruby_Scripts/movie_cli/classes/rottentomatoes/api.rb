@@ -76,10 +76,7 @@ module RottenTomatoes
 		#
 		# @return [Array] array of RottenTomatoes::Movie objects
 		def put_json_into_movie_obj(movie_json)
-			movie_json.map { |movie| RottenTomatoes::Movie.new(movie['id'], movie['year'], movie['gernes'],
-																												 movie['title'], movie['release_dates'], movie['ratings'],
-																												 movie['synopsis'], movie['posters'], movie['abridged_cast'],
-																												 movie['runtime']) }
+			movie_json.map { |movie| RottenTomatoes::Movie.new(movie['id'], movie['year'], movie['gernes'], movie['title'], movie['release_dates'], movie['ratings'], movie['synopsis'], movie['posters'], movie['abridged_cast'], movie['runtime']) }
 		end
 
 	end
