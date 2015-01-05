@@ -1,4 +1,4 @@
-MOVIE COMMAND LINE UP
+MOVIE COMMAND LINE APP
 ==============
 
 Uses RottenTomatoes API (http://developer.rottentomatoes.com) to get movie information by title using Command Line (Terminal)
