@@ -1,6 +1,5 @@
 require_relative 'xml_parser'
 
-
 #
 #  Test Output
 #
