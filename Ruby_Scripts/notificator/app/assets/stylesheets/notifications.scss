@@ -1,3 +1,27 @@
-// Place all the styles related to the notifications controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+ul.notificator {
+  display: inline-block;
+  float:right;
+  margin: 0;
+  li
+  {
+    position: relative;
+    list-style: none;
+
+    i
+    {
+      color: #fff;
+    }
+  }
+}
+
+#notification-counter {
+  position: absolute;
+  top: -2px;
+  left: 25px;
+
+  background-color: rgb(212, 78, 3);
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 3px;
+  font: 8px Verdana;
+}
