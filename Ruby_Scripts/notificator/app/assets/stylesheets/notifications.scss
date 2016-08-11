@@ -25,3 +25,85 @@ ul.notificator {
   padding: 1px 3px;
   font: 8px Verdana;
 }
+
+ul #notificationList
+{
+  li
+  {
+    position:relative;
+    border-bottom: #dddddd 1px solid;
+  }
+  span
+  {
+    color: #989494;
+    font-size: 8px;
+  }
+
+}
+
+#notificationsBody  ul
+{
+  padding-left: 0;
+}
+
+#notificationContainer
+{
+  background-color: #fff;
+  border: 1px solid rgba(100, 100, 100, .4);
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+  overflow: visible;
+  position: absolute;
+  top: 70px;
+  margin-left: -253px;
+  width: 300px;
+  z-index: 0;
+  display: none;
+}
+// Popup Arrow
+#notificationContainer:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  color: transparent;
+  border: 10px solid black;
+  border-color: transparent transparent white;
+  margin-top: -20px;
+  margin-left: 258px;
+}
+
+#notificationTitle
+{
+  font-weight: bold;
+  padding: 8px;
+  font-size: 13px;
+  background-color: #f0f0f0;
+  position: absolute;
+  z-index: 1;
+  width: 284px;
+  border-bottom: 1px solid #d44e03;
+  color: #d44e03;
+}
+
+#notificationsBody
+{
+  padding: 3px 0px 0px 0px !important;
+  min-height:300px;
+  max-height:300px;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
+
+
+#notificationFooter
+{
+  background-color: #e9eaed;
+  text-align: center;
+  font-weight: bold;
+  padding: 8px;
+  font-size: 12px;
+  border-top: 1px solid #dddddd;
+}
+
