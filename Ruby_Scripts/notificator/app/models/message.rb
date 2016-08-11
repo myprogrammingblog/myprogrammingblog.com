@@ -4,6 +4,6 @@ class Message < ApplicationRecord
   private
 
   def notify
-    Notification.create "New Notification"
+    Notification.create(event: "New Notification")
   end
 end
